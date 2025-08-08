@@ -1,0 +1,71 @@
+Here’s a well-structured prompt you can use to develop the **FairPay Laos** platform using **Replit AI** (or any other AI-assisted development tool):
+
+---
+
+### **Replit AI Prompt: Develop FairPay Laos – Cross-Border Payment Solution**  
+
+**Objective:**  
+Build a **multi-currency e-wallet & QR payment system** for Laos, enabling tourists, expats, and local businesses to transact seamlessly with low fees.  
+
+#### **Key Features to Implement:**  
+1. **User App (Tourists/Expats):**  
+   - Registration via **passport + foreign phone number** (no Lao bank needed).  
+   - Top-up in **USD, THB, EUR** via:  
+     - International cards (Stripe/PayPal).  
+     - Thai bank transfers (PromptPay integration).  
+   - Real-time **currency exchange (0.5% fee)**.  
+   - QR code scanner for payments.  
+
+2. **Vendor App (Lao Businesses):**  
+   - Business KYC onboarding.  
+   - QR code generator for payments.  
+   - Instant settlement to e-wallet (withdraw to BCEL/BFL).  
+
+3. **Backend & Compliance:**  
+   - Partner with **BCEL/BFL** for Lao QR payment standards.  
+   - **Bank of Laos** regulatory compliance (transaction limits, KYC).  
+   - Multi-currency ledger (track LAK, USD, THB balances).  
+
+#### **Tech Stack Request:**  
+- **Frontend:** React Native (cross-platform iOS/Android).  
+- **Backend:** Node.js + Express (API for transactions).  
+- **Database:** PostgreSQL (user accounts, transaction logs).  
+- **Security:** JWT auth, AES-256 encryption.  
+- **APIs Needed:**  
+  - BCEL/BFL QR payment API.  
+  - Stripe/PromptPay for top-ups.  
+  - OpenExchangeRates API for FX.  
+
+#### **Step-by-Step Guidance Needed:**  
+1. **Setup:** How to structure the Replit project (monorepo for app + backend)?  
+2. **User Auth:** Best way to handle passport-based KYC without OTP?  
+3. **QR Payments:** How to integrate Lao bank QR standards (e.g., BCEL One)?  
+4. **FX Engine:** Code logic for real-time exchange (+0.5% fee).  
+5. **Testing:** Simulate transactions in a sandbox environment.  
+
+#### **Example Code Request:**  
+```javascript
+// Sample: QR payment flow (user scans vendor QR)
+function handlePayment(userId, vendorId, amountLAK) {
+  // 1. Check user balance
+  // 2. Deduct amount + 0.5% fee
+  // 3. Credit vendor (instant)
+  // 4. Log transaction
+}
+```
+
+**Priority:**  
+- Start with **MVP** (user top-up + QR pay) → later add virtual cards, cashback.  
+
+---
+
+### **How to Use This Prompt in Replit AI:**  
+1. Open **Replit** (replit.com) and create a new project (Node.js + React Native).  
+2. Use the **AI Chat Assistant** (or Ghostwriter) and paste this prompt.  
+3. Refine responses with follow-ups like:  
+   - *"How to integrate BCEL’s QR API in Node.js?"*  
+   - *"Show React Native UI for the wallet screen."*  
+
+This keeps the AI focused on **Laos-specific payment needs** while leveraging Replit’s collaborative coding features.  
+
+Would you like me to tailor this further for a specific AI dev tool? 🚀
