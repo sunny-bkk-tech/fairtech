@@ -49,6 +49,32 @@ const dbConfig = {
 export const pool = new Pool(dbConfig);
 export const db = drizzle(pool, { schema });
 
+//temp
+async function updatePassword(email: string, newPlainPassword: string) {
+  const pool = new Pool({
+    host: process.env.DB_HOST || "localhost",
+    port: parseInt(process.env.DB_PORT || "5432"),
+    user: process.env.DB_USER || "sunny",
+    password: process.env.DB_PASSWORD || "",
+    database: process.env.DB_NAME || "fairpaydb",
+    ssl:
+      process.env.NODE_ENV === "production"
+        ? { rejectUnauthorized: false }
+        : false,
+  });
+
+  const hashed = await bcrypt.hash(newPlainPassword, 10);
+  await pool.query(
+    "UPDATE users SET password = $1 WHERE email = $2",
+    [hashed, email]
+  );
+
+  console.log(`✅ Password updated for ${email}`);
+  await pool.end();
+}
+
+//updatePassword("user@fairpay.la", "user123").catch(console.error);
+//temp---
 
 // 4. Session Store Configuration
 const PostgresSessionStore = connectPg(session);

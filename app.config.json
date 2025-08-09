@@ -1,0 +1,10 @@
+{
+    apps : [
+      {
+        name      : "fairpay",
+        script    : "npx",
+        interpreter: "none",
+        args: "serve -s dist/public -p 3001"
+      }
+    ]
+  }
