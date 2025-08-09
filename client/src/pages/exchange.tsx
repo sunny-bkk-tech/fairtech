@@ -40,11 +40,15 @@ export default function ExchangePage() {
     enabled: !!user,
   });
 
-  const exchangeMutation = useMutation({
-    mutationFn: async (data: any) => {
-      const response = await apiRequest("POST", "/api/exchange", data);
+const exchangeMutation = useMutation({
+  mutationFn: async (data: any) => {
+    const response = await apiRequest("POST", "/api/exchange", data);
+    // Handle case where apiRequest might already return parsed data
+    if (typeof response.json === 'function') {
       return response.json();
-    },
+    }
+    return response; // assuming it's already parsed
+  },
     onSuccess: () => {
       toast({
         title: "Exchange Successful",
